@@ -57,24 +57,21 @@ END;
 /
 
 
-Alter TABLE Useri 
-ADD Fjalekalimi Fjalekalimi NOT NULL;
 
-ALTER TABLE Useri
-ADD Adresa Lista_e_adresave NESTED TABLE Adresa STORE AS Adresa_Nested;
 
 
 Insert into Useri (Emri,Mbiemri,Fjalekalimi,Adresa)
 Values ('Albos','asd', Fjalekalimi('asd','123'),Lista_e_adresave(Adresa('Ferizaj','Ferizaj','Kuvendi i Arberit','70000'),Adresa('Kommogllave','Ferizaj','Rr.E Vitise','70000')));
 
-SELECT Emri,Mbiemri,Email,Datelindja,U.Fjalekalimi FROM Useri U;
-SELECT SYSDATE FROM DUAL;
-SELECT * FROM Useri;
+--
+--SELECT Emri,Mbiemri,Email,Datelindja,U.Fjalekalimi FROM Useri U;
+--SELECT SYSDATE FROM DUAL;
+--SELECT * FROM Useri;
 
-Update Useri
-SET Adresa = Lista_e_Adresave( Adresa('Ferizaj','Ferizaj','Kuvendi i Arberit','70000'),Adresa('Kommogllave','Ferizaj','Rr.E Vitise','70000'));
+--Update Useri
+--SET Adresa = Lista_e_Adresave( Adresa('Ferizaj','Ferizaj','Kuvendi i Arberit','70000'),Adresa('Kommogllave','Ferizaj','Rr.E Vitise','70000'));
 
-
-TRUNCATE TABLE Useri;
-DELETE FROM Useri WHERE personid=1;
-SELECT * FROM Useri;
+--
+--TRUNCATE TABLE Useri;
+--DELETE FROM Useri WHERE personid=1;
+--SELECT * FROM Useri;
