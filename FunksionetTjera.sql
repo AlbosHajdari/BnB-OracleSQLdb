@@ -54,5 +54,16 @@ SELECT Shuma, RANK() OVER (ORDER BY Shuma DESC) Rangimi_i_Pageses
 FROM Pagesat;
 /
 
-SELECT Shuma, WINDOW() OVER (ORDER BY Shuma DESC) Rangimi_i_Pageses
+SELECT Shuma,  OVER (ORDER BY Shuma DESC) Rangimi_i_Pageses
 FROM Pagesat;
+
+/
+
+CREATE VIEW Pronari AS 
+select u.emri,u.Mbiemri,o.objektid from useri u join Objekti o on u.PersonId=o.PronarId;
+;
+
+
+
+
+
