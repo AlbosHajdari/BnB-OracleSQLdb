@@ -136,3 +136,23 @@ CREATE TABLE tblGarazhda(
     --FotoGarazhdes PHOTO,
     CONSTRAINT GarazhdaIdPK PRIMARY KEY (GarazhdaID)
 );
+                                                                                              
+___________________________________________________________________________________________________
+                                                                                              
+CREATE TABLE tblApartamentApoKat(
+    ApartamentApoKatiID Number(10) NOT NULL,
+    KatiNumer number(3),
+    Lifti char(1) NOT NULL, --boolean
+    CONSTRAINT aKaLift CHECK ( Lifti = '1' OR Lifti = '0' ),
+    --SiperfaqjaApartamentit number(5,2),
+    Garazhdat garazhdat,
+    CONSTRAINT ApartamentApoKatiIdPK PRIMARY KEY (ApartamentApoKatiID)
+)NESTED TABLE Garazhdat STORE AS atributi_garazhdat
+;
+                                                                                              
+CREATE TYPE garazhda AS OBJECT(
+    SiperfaqjaGarazhdes number(6,2),
+    TipiDyerveTeGarazhdes nvarchar2(20)
+    --FotoGarazhdes PHOTO
+);
+CREATE TYPE garazhdat IS TABLE OF garazhda;                                                                                         
