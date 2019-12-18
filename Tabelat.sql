@@ -2,7 +2,7 @@ CREATE TABLE Useri(
     PersonId Number(10) NOT NULL,
     Emri nvarchar2(30),
     Mbiemri nvarchar2(30),
-    Email nvarchar2(30) UNIQUE,
+    Email nvarchar2(30) UNIQUE NOT NULL,
     Datelindja DATE,
     Fjalekalimi Fjalekalimi NOT NULL,
     Adresa Lista_e_Adresave,
@@ -78,7 +78,6 @@ CREATE TABLE tblDhomeGjumi(
     ShtepiaID number(10),
     ApartamentiID number(10),
     LlojiPerdoruesveTeDhomes nvarchar2(30) CHECK (LlojiPerdoruesveTeDhomes = 'femije' OR LlojiPerdoruesveTeDhomes = 'te rritur' OR LlojiPerdoruesveTeDhomes = 'qift'),
-    NumriKrevateve number(2),
     
     CONSTRAINT DhomeGjumiIdPK PRIMARY KEY (DhomeGjumiID),
     CONSTRAINT dhomeGjumiShtepiIdFK FOREIGN KEY (ShtepiaID) REFERENCES tblShtepia(ShtepiaID) ON DELETE CASCADE,
